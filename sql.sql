@@ -1,0 +1,22 @@
+CREATE DATABASE transactionsdb;
+CREATE USER 'transuser'@'localhost' IDENTIFIED BY 'transpass';
+GRANT ALL PRIVILEGES ON transactionsdb.* TO 'transuser'@'localhost';
+FLUSH privileges;
+use transactionsdb;
+SHOW tables;
+INSERT INTO transactionss (amount, timestamp, type, user_id) VALUES
+(250.00, '2026-03-01 10:15:00', 'DEPOSIT', 1),
+(120.00, '2026-03-02 14:20:00', 'WITHDRAWAL', 1),
+(450.00, '2026-03-03 09:45:00', 'TRANSFER', 2),
+(800.00, '2026-03-04 16:30:00', 'DEPOSIT', 3),
+(75.00,  '2026-03-05 11:10:00', 'WITHDRAWAL', 2),
+(600.00, '2026-03-06 13:00:00', 'DEPOSIT', 1),
+(300.00, '2026-03-07 15:25:00', 'TRANSFER', 3),
+(950.00, '2026-03-08 17:40:00', 'DEPOSIT', 4),
+(200.00, '2026-03-09 12:05:00', 'WITHDRAWAL', 4),
+(500.00, '2026-03-09 18:15:00', 'TRANSFER', 2),
+(1000.00,'2026-03-10 09:00:00', 'DEPOSIT', 5),
+(150.00, '2026-03-10 10:30:00', 'WITHDRAWAL', 5),
+(700.00, '2026-03-10 11:45:00', 'TRANSFER', 3),
+(350.00, '2026-03-10 14:20:00', 'DEPOSIT', 2),
+(220.00, '2026-03-10 15:50:00', 'WITHDRAWAL', 1);

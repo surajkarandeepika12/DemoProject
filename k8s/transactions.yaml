@@ -1,0 +1,33 @@
+# Transactions Service
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: transactions-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: transactions
+  template:
+    metadata:
+      labels:
+        app: transactions
+    spec:
+      containers:
+      - name: transactions
+        image: deepichinni12/deepika-transactions-service:latest
+        ports:
+        - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: transactions-service
+spec:
+  selector:
+    app: transactions
+  ports:
+  - port: 8083
+    targetPort: 8083
+  type: ClusterIP
